@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Museo virtual: Cementerio de Maipú</title>
+  <meta name="description" content="Museo virtual: Cementerio de Maipú. Historia, descripción y valor patrimonial, con galería dividida en parte antigua y parte nueva, y mapa de cómo llegar." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f7f1e8;
+      --text:#2c2a27;
+      --muted:#6e6256;
+      --card:#fffaf2;
+      --primary:#7b4f2c;
+      --accent:#b77b3b;
+      --border:#e6dccf;
+      --pill:#efe6d6;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    a{color:var(--primary);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header.hero{
+      position:relative;
+      padding:72px 20px 32px;
+      overflow:hidden;
+      border-bottom:1px solid var(--border);
+      background:
+        radial-gradient(1200px 600px at 70% -10%, rgba(183,123,59,.10), transparent 60%),
+        radial-gradient(900px 600px at 10% -30%, rgba(123,79,44,.08), transparent 60%);
+    }
+    .container{max-width:1280px;margin:0 auto;padding:0 20px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand .logo{
+      width:42px;height:42px;border-radius:50%;
+      background:conic-gradient(from 220deg at 50% 50%, #d6bfa6, #b77b3b, #7b4f2c, #d6bfa6);
+      filter:saturate(110%);
+      box-shadow:0 0 18px rgba(183,123,59,.25), 0 0 24px rgba(214,191,166,.25) inset;
+    }
+    .caps{letter-spacing:.08em; text-transform:uppercase; font-weight:600; font-size:.78rem; color:#7a6d61}
+    .title{
+      font-family:"Playfair Display",serif;
+      font-size:clamp(28px, 4vw, 44px);
+      line-height:1.12;margin:14px 0 6px;letter-spacing:.3px;color:#3a2e22;
+    }
+    .subtitle{color:#6f645a;max-width:920px}
+    nav.top{margin:22px 0 8px; display:flex; flex-wrap:wrap; gap:10px}
+    nav.top a{
+      padding:10px 14px;border:1px solid var(--border); border-radius:999px; color:#3b342e;background:#fff6e8; 
+    }
+    nav.top a:hover{border-color:#decfb8; background:#fff2dd}
+    .hero-img{
+      position:absolute; right:0; top:0; opacity:.12; mix-blend:multiply;
+      width:min(46vw,640px); height:auto; transform:translate(6%, -8%);
+      filter:grayscale(100%) contrast(105%);
+    }
+    section{border-top:1px solid var(--border); background:rgba(255,255,255,.35)}
+    section .section-body{display:grid; grid-template-columns: 1fr; gap:18px; padding:32px 0}
+    h2{font-family:"Playfair Display",serif;font-size:clamp(22px, 2.6vw, 32px); margin:0 0 8px;color:#3a2e22}
+    h3{margin:16px 0 6px; font-size:clamp(18px, 2.1vw, 24px); color:#443528}
+    p{margin:8px 0; line-height:1.75}
+    .card{
+      background:linear-gradient(180deg,#fffaf2 0%, #fff5e8 100%);
+      border:1px solid var(--border); border-radius:16px; padding:18px;
+      box-shadow:0 6px 20px rgba(111,100,90,.10);
+    }
+    .grid-2{display:grid; grid-template-columns:1fr; gap:18px}
+    .grid-3{display:grid; grid-template-columns:1fr; gap:18px}
+    @media(min-width:900px){
+      section .section-body{grid-template-columns: 280px 1fr}
+      .grid-2{grid-template-columns:1fr 1fr}
+      .grid-3{grid-template-columns:repeat(3,1fr)}
+    }
+    .tag{display:inline-block; padding:4px 10px; border:1px solid var(--border); border-radius:999px; font-size:.85rem; color:#5b4f45; background:#fff1df}
+    .kpi{display:flex; gap:12px; align-items:center}
+    .kpi .dot{width:10px;height:10px;border-radius:50%;background:#4caf50;box-shadow:0 0 10px rgba(76,175,80,.45)}
+    .table{width:100%; border-collapse:collapse; font-size:.98rem}
+    .table th,.table td{padding:10px 12px; border-bottom:1px dashed #e1d7c6; vertical-align:top}
+    .table th{color:#6c5f52; text-align:left; width:220px}
+    .blockquote{padding:14px 16px; border-left:3px solid var(--accent); background:#fff3e0; color:#5a4f45; border-radius:4px}
+    .footer{padding:26px 20px; color:#6a5c50; font-size:.95rem; text-align:center; border-top:1px solid var(--border); background:#fff6ea}
+    .note{font-size:.92rem;color:#6e6256}
+    .pill{display:inline-block; padding:6px 10px; border:1px solid #e6dccf; border-radius:10px; background:var(--pill); color:#5c5247; font-size:.86rem}
+    /* GALLERY: bigger images */
+    .gallery{display:grid; grid-template-columns:1fr; gap:18px}
+    .gallery img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid #eadfce;box-shadow:0 10px 24px rgba(0,0,0,.08);object-fit:cover;}
+      width:100%;
+      height:auto;              /* let images use full width with natural height */
+      display:block;
+      border-radius:14px;
+      border:1px solid #eadfce;
+      box-shadow:0 10px 24px rgba(0,0,0,.08);
+    }
+    @media(min-width:1200px){
+      .gallery{gap:22px}
+    }
+    .small{font-size:.95rem}
+    .muted{color:var(--muted)}
+    .toc{display:flex; flex-direction:column; gap:6px}
+    .toc a{font-size:.95rem; color:#705538}
+    .toc a:hover{color:#3a2e22}
+    .map-wrap{border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#fff}
+    .map-note{font-size:.9rem;color:#6a5c50;margin-top:8px}
+    .subtle{color:#72685d;font-size:.95rem}
+  
+    /* Force larger images for Parte nueva */
+    .gallery-new{display:block}
+    .gallery-new img{
+      width:100% !important;
+      max-width:100% !important;
+      height:auto !important;
+      display:block !important;
+      margin:0 0 18px 0 !important;
+      float:none !important;
+      clear:both !important;
+    }
+
+  
+    /* Center images for Parte nueva */
+    .gallery-new {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .gallery-new img {
+      width: 90% !important;
+      max-width: 1000px !important;
+      margin: 20px auto !important;
+      display: block !important;
+    }
+
+  
+    /* Force Parte nueva images to be large and centered identically to Parte vieja */
+    .gallery-new {
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-items: center;
+      width: 100%;
+    }
+    .gallery-new img {
+      width: 100% !important;
+      max-width: 1200px !important;
+      height: auto !important;
+      display: block !important;
+      margin: 25px auto !important;
+      border-radius: 14px;
+      border: 1px solid #eadfce;
+      box-shadow: 0 10px 24px rgba(0,0,0,.08);
+    }
+
+  
+    /* Final fix: make sure Parte nueva images are centered and large */
+    .gallery-new {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    .gallery-new img {
+      width: 100% !important;
+      max-width: 1200px !important;
+      height: auto !important;
+      display: block !important;
+      margin: 25px auto !important;
+      border-radius: 14px;
+      border: 1px solid #eadfce;
+      box-shadow: 0 10px 24px rgba(0,0,0,.08);
+    }
+
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <img class="hero-img" alt="Textura marmórea abstracta" src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1600&auto=format&fit=crop" />
+    <div class="container">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div class="caps">Patrimonio Cultural</div>
+          <div class="title">Museo virtual: Cementerio de Maipú</div>
+          <div class="subtitle">Historia y valor patrimonial del Cementerio Municipal de Maipú. Galería (parte antigua / parte nueva) y mapa para llegar.</div>
+        </div>
+      </div>
+      <nav class="top" aria-label="Secciones del sitio">
+        <a href="#historia">Historia</a>
+        <a href="#identificacion">Identificación</a>
+        <a href="#descripcion">Descripción</a>
+        <a href="#valoraciones">Valoraciones</a>
+        <a href="#como-llegar">Cómo llegar</a>
+        <a href="#galeria">Galería</a>
+        <a href="#normativa">Normativa</a>
+      </nav>
+      <div class="kpi"><span class="dot"></span><span class="small">Museo virtual • Acceso libre</span></div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="historia">
+      <div class="section-body">
+        <aside>
+          <h2>Historia</h2>
+          <div class="toc">
+            <a href="#historia-origenes">Orígenes (1878–1885)</a>
+            <a href="#historia-ampl">Ampliaciones (1933–1937)</a>
+            <a href="#historia-sectores">Sectores Este/Oeste (≈1970)</a>
+          </div>
+        </aside>
+        <article class="card">
+          <h3 id="historia-origenes">Orígenes (1878–1885)</h3>
+          <p>El Cementerio Público de Maipú comenzó a construirse entre <strong>1878 y 1882</strong>, impulsado por la Municipalidad presidida por <strong>Francisco J. Guevara</strong>, que gestionó la expropiación de un terreno. Pese a la resistencia de los propietarios, la compra se concretó con fondos municipales y, luego, apoyo provincial: en <strong>1885</strong> se concluyó la obra y fue bendecido por el párroco local (Fernández Peláez, 1961).</p>
+
+          <h3 id="historia-ampl">Ampliaciones (1933–1937)</h3>
+          <p>En <strong>1933</strong>, ante la falta de espacio, se proyectó su clausura; sin embargo, el Estado y los vecinos permitieron ampliarlo mediante la adquisición de <strong>8.308 m²</strong> a la familia Scaramella. En <strong>1937</strong> se extendió nuevamente hacia el Sur, ordenando recorridos y habilitando nuevas tipologías (mausoleos, nichos).</p>
+
+          <h3 id="historia-sectores">Sectores Este/Oeste</h3>
+          <p>El emplazamiento actual –entre <strong>Barcala</strong> y <strong>Patagonia</strong>– se organiza en dos sectores: <strong>Este</strong> (parte más antigua) y <strong>Oeste</strong> (ampliación construida alrededor de <strong>1970</strong>). Cada sector conserva huellas de transformaciones sociales, religiosas y urbanas de la comunidad.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="identificacion">
+      <div class="section-body">
+        <aside><h2>Identificación</h2></aside>
+        <article class="card">
+          <table class="table">
+            <tr><th>Nombre del bien</th><td>Cementerio Municipal de Maipú</td></tr>
+            <tr><th>Ubicación</th><td>Calle Bárcala y Patagonia, Maipú, Mendoza</td></tr>
+            <tr><th>Tipo de bien</th><td>Inmueble funerario – patrimonio cultural</td></tr>
+            <tr><th>Jurisdicción</th><td>Municipalidad de Maipú</td></tr>
+            <tr><th>Fundación</th><td>Finales del siglo XIX – actual</td></tr>
+            <tr><th>Propiedad</th><td>Pública municipal</td></tr>
+          </table>
+        </article>
+      </div>
+    </section>
+
+    <section id="descripcion">
+      <div class="section-body">
+        <aside><h2>Descripción</h2></aside>
+        <article class="card">
+          <h3>Ubicación y accesibilidad</h3>
+          <p>Ubicado a <strong>7 cuadras</strong> de la plaza 12 de Febrero (centro de Maipú) y a <strong>~13 km</strong> de la Ciudad de Mendoza (≈25 min por Acceso Sur/RN40; ≈70 min en transporte público desde Plaza Independencia). El ingreso principal es por <strong>calle Bárcala</strong>. El interior es de fácil orientación, con capilla, bancos e iluminación; sin embargo, la <strong>accesibilidad universal</strong> presenta límites (faltan rampas y señalética inclusiva en algunos sectores).</p>
+
+          <h3>Características</h3>
+          <p>Bien funerario público con funciones vigentes de inhumación y conmemoración; posee <strong>valor histórico, artístico y simbólico</strong> para la comunidad. La arquitectura combina influencias <em>neoclásicas</em>, <em>italianizantes</em> y <em>racionalistas</em>, con predominio de <strong>mármol, hierro y piedra</strong>.</p>
+
+          <div class="grid-2">
+            <div class="card">
+              <h4>Parte antigua</h4>
+              <p>Fines del XIX y comienzos del XX. Estilos <strong>neoclásico</strong> e <strong>italianizante</strong>: mausoleos con columnas, frontones, ornamentación escultórica y <strong>nichos</strong>. Elementos: cruces, ángeles y relieves tallados.</p>
+            </div>
+            <div class="card">
+              <h4>Parte nueva</h4>
+              <p>Segunda mitad del siglo XX. Estética <strong>racionalista</strong>: diseño simple, geométrico y funcional. Pabellones de <strong>nichos de hormigón</strong> y mausoleos modernos, con <strong>menor decoración</strong> (fachadas lisas y rectas).</p>
+            </div>
+          </div>
+
+          <h3>Elementos simbólicos y capilla</h3>
+          <p>Conviven <strong>ángeles</strong>, <strong>cruces</strong> y relieves que refuerzan valores estéticos, simbólicos y religiosos. La <strong>capilla funeraria</strong> cumple función espiritual y simbólica (no aloja restos humanos).</p>
+        </article>
+
+        <article class="card">
+          <h3>Contexto social y cultural</h3>
+          <p>Espacio de <strong>memoria colectiva</strong> con fuerte raigambre religiosa e histórica; conserva prácticas de visita y conmemoración que permiten <strong>leer el pasado</strong> a través de su arquitectura e iconografía.</p>
+
+          <h3>Uso potencial turístico</h3>
+          <p>Alto potencial para <strong>recorridos interpretativos</strong> (identidad, religiosidad e historia local). Se recomienda <em>puesta en valor controlada</em> y <strong>turismo responsable</strong> de carácter educativo.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="valoraciones">
+      <div class="section-body">
+        <aside><h2>Valoraciones</h2></aside>
+        <article class="card">
+          <div class="grid-3">
+            <div class="card">
+              <h3>Valor arquitectónico</h3>
+              <p>Diversidad de <strong>tipologías funerarias</strong> que expresan etapas históricas: coexistencia de estilos italianizante/neoclásico (sector histórico) y racionalista (sector nuevo). Tipos: nichos, capillas funerarias y sardineles.</p>
+            </div>
+            <div class="card">
+              <h3>Valor artístico</h3>
+              <p>Esculturas y relieves en <strong>mármol, hierro y piedra</strong> con iconografía (ángeles, cruces, imágenes sacras) que aportan belleza y profundidad simbólica: un <strong>museo al aire libre</strong>.</p>
+            </div>
+            <div class="card">
+              <h3>Valor social e histórico</h3>
+              <p>Entre las primeras necrópolis provinciales del siglo XIX, vinculada a cambios higienistas; lugar de <strong>identidad y pertenencia</strong> para la comunidad maipucina.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="como-llegar">
+      <div class="section-body">
+        <aside><h2>Cómo llegar (Mapa)</h2></aside>
+        <article class="card">
+          <p class="muted">Ruta sugerida desde el centro de la Ciudad de Mendoza (Plaza Independencia) hasta el Cementerio Municipal de Maipú (Bárcala y Patagonia).</p>
+          <div class="map-wrap">
+            <iframe
+              title="Mapa con indicaciones desde Plaza Independencia a Cementerio de Maipú"
+              width="100%"
+              height="460"
+              style="border:0"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d26738.34949241666!2d-68.8648898!3d-32.8897134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x967e09015aa5e9c5%3A0x2a059f6e6b7965a!2sPlaza%20Independencia%2C%20Mendoza!3m2!1d-32.8897328!2d-68.8443276!4m5!1s0x967e09b35d9b0ca9%3A0xf1c46a6e7f2f6e33!2sB%C3%A1rcala%20%26%20Patagonia%2C%20Maip%C3%BA%2C%20Mendoza!3m2!1d-32.9719936!2d-68.7901146!5e0!3m2!1ses-419!2sar!4v1730740000">
+            </iframe>
+          </div>
+          <p class="map-note">Consejo: en auto, la opción más directa suele ser por Acceso Sur (RN40) hacia Maipú y luego por calles locales hasta Bárcala y Patagonia.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="galeria">
+      <div class="section-body">
+        <aside><h2>Galería</h2></aside>
+        <article class="card">
+          <h3>Arquitectura funeraria — Parte antigua</h3>
+          <div class="gallery" aria-label="Parte antigua">
+            <img alt="Parte antigua 1" src="https://i.postimg.cc/VLd5HqXn/1000154734.jpg" />
+            <img alt="Parte antigua 2" src="https://i.postimg.cc/fRYz6Byn/1000154744.jpg" />
+            <img alt="Parte antigua 3" src="https://i.postimg.cc/LXQ2zWCx/1000158671.jpg" />
+            <img alt="Parte antigua 4" src="https://i.postimg.cc/L63RDhbg/1000158683.jpg" />
+            <img alt="Parte antigua 5" src="https://i.postimg.cc/4NsRYsN0/1000158692.jpg" />
+            <img alt="Parte antigua 6" src="https://i.postimg.cc/Bn7r7FcP/1000158698.jpg" />
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Arquitectura funeraria — Parte nueva</h3>
+          <div class="gallery gallery-new" aria-label="Parte nueva">
+            <img alt="Parte nueva 1" src="https://i.postimg.cc/25psfDMD/IMG-20250909-WA0014.jpg" />
+            <img alt="Parte nueva 2" src="https://i.postimg.cc/m2vXPSwM/IMG-20250909-WA0013.jpg" />
+            <img alt="Parte nueva 3" src="https://i.postimg.cc/GpcjDgsc/1000158726.jpg" />
+            <img alt="Parte nueva 4" src="https://i.postimg.cc/SsPLwy1V/1000158729.jpg" />
+            <img alt="Parte nueva 5" src="https://i.postimg.cc/v8pknM8D/1000158733.jpg" />
+            <img alt="Parte nueva 6" src="https://i.postimg.cc/JzRT3zfz/1000158720.jpg" />
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="normativa">
+      <div class="section-body">
+        <aside><h2>Normativa</h2></aside>
+        <article class="card">
+          <p class="muted">Resumen de normativa aplicable:</p>
+          <ul>
+            <li><strong>Ley de Cementerios Públicos (1828)</strong>: crea necrópolis fuera del casco urbano; establece capilla y administración; prohíbe sepultar en templos.</li>
+            <li><strong>Decreto (1846)</strong> del gobernador Pedro Pascual Segura: ordena su cumplimiento en la provincia.</li>
+            <li><strong>Ordenanza HCD Maipú N.º 3.337 (2002)</strong>: régimen general para cementerios municipales y privados (concesiones, reducciones, sepulturas en tierra, exhumaciones, obras y mantenimiento, registro de empresas, criterios ambientales y tarifarios).</li>
+          </ul>
+          <p class="subtle">Esta normativa tutela el orden, higiene, seguridad e integridad patrimonial y ambiental del sitio.</p>
+        </article>
+      </div>
+    </section>
+  
+    <section id="horarios">
+      <div class="section-body">
+        <aside><h2>Horarios</h2></aside>
+        <article class="card">
+          <table class="table" aria-label="Horarios del Cementerio de Maipú">
+            <tr><th>Lunes</th><td>8:30 a.m.–12:30 p.m., 2–5 p.m.</td></tr>
+            <tr><th>Martes</th><td>8:30 a.m.–12:30 p.m., 2–5 p.m.</td></tr>
+            <tr><th>Miércoles</th><td>8:30 a.m.–12:30 p.m., 2–5 p.m.</td></tr>
+            <tr><th>Jueves</th><td>8:30 a.m.–12:30 p.m., 2–5 p.m.</td></tr>
+            <tr><th>Viernes</th><td>8:30 a.m.–12:30 p.m., 2–5 p.m.</td></tr>
+            <tr><th>Sábado</th><td>8:30 a.m.–12:30 p.m., 2–5 p.m.</td></tr>
+            <tr><th>Domingo</th><td>9 a.m.–12 p.m.</td></tr>
+          </table>
+          </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div>© Museo virtual — Cementerio de Maipú<br><strong>Fundadores:</strong> Méndez Abeiro Leandro y Bertha Guarachi</div>
+    <div class="small">Última actualización: <span id="fecha"></span></div>
+  </footer>
+
+  <script>
+    // Fecha legible en pie de página
+    const f = new Date();
+    const fmt = f.toLocaleDateString('es-AR', {year:'numeric', month:'long', day:'numeric'});
+    document.getElementById('fecha').textContent = fmt;
+
+    // Desplazamiento suave
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const el = document.querySelector(a.getAttribute('href'));
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+      })
+    });
+  </script>
+</body>
+</html>
+
